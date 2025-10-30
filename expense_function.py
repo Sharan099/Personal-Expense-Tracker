@@ -1,6 +1,7 @@
 import csv
 from datetime import date
 from collections import defaultdict
+import currency_conv_api
 
 FILENAME = "expenses.csv"
 
@@ -56,3 +57,4 @@ class Tracker:
                 if "amount" in row and row["amount"]:
                     total += float(row["amount"])
         print(f"\n💰 Total Expenses: €{total:.2f}")
+        return total

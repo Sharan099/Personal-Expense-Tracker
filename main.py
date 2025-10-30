@@ -1,4 +1,5 @@
 from expense_function import Tracker
+import currency_conv_api
 
 import pandas as pd 
 
@@ -16,10 +17,11 @@ print(""" Enter
     2.view all Expenses
     3.view by category
     4.show summary
-    5.Exit""")
+    5.View Expense in INR
+    6.Exit""")
 
 
-while command.lower() != "5":
+while command.lower() != "6":
     command=input(">").lower()
 
     if command == "1":
@@ -33,6 +35,10 @@ while command.lower() != "5":
         Tracker.show_expenses_by_category()
     elif command=="4":
         Tracker.show_all_expenses()
+    elif command=="5":
+        total = Tracker.show_total_expenses()
+        currency_conv_api.convert_currency(total)
+
         
 
         
